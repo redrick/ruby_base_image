@@ -8,9 +8,13 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 
 # Set the locale
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+RUN apt-get clean && apt-get update && apt-get install -y locales
+RUN locale-gen en_US.UTF-8
+RUN export LANGUAGE=en_US.UTF-8
+RUN export LANG=en_US.UTF-8
+RUN export LC_ALL=en_US.UTF-8
+RUN locale-gen en_US.UTF-8
+RUN dpkg-reconfigure locales
 
 ENV TZ=Europe/Prague
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -26,7 +30,7 @@ RUN apt-get install -y postgresql-client
 RUN apt-get install -y openssh-client
 
 ## Nodejs engine
-RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_7.x | bash -
 RUN apt-get install -y nodejs
 
 ## YARN

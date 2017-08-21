@@ -38,7 +38,7 @@ docker ps
 
 CONTAINER ID        IMAGE               COMMAND             CREATED
 STATUS              PORTS               NAMES
-785d4e1ff4d1        redrick/ruby_base_image          "bash"              3 seconds ago    Up
+785d4e1ff4d1        redrick/ruby_base_image          'bash'              3 seconds ago    Up
 2 seconds                            elated_colden
 ``
 3. run e.x. bash inside container (using container ID from above)
