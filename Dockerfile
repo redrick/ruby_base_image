@@ -47,9 +47,8 @@ RUN yarn global add phantomjs-prebuilt
 
 RUN apt-get install -y ruby2.4 ruby2.4-dev
 
-RUN gem install bundler
+RUN apt-get autoremove -y
 
-WORKDIR /app
-ONBUILD ADD . /app
+RUN gem install bundler
 
 CMD ["bash"]
