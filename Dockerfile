@@ -1,4 +1,4 @@
-FROM ubuntu:zesty
+FROM ubuntu:xenial
 
 MAINTAINER  Andrej Antas <andrej@antas.cz>
 
